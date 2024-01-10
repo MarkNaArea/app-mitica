@@ -16,12 +16,12 @@ export const globalStyles = StyleSheet.create({
 
     text : {
         color: '#FFFFFF',
-        fontFamily: 'poppins-regular'
+        fontFamily: 'Poppins-Regular'
     },
 
     title : {
         color: '#FFFFFF',
-        fontFamily: 'poppins-bold',
+        fontFamily: 'Poppins-Bold',
         fontSize: 42
     },
 

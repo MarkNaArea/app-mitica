@@ -24,19 +24,21 @@ export const Register = ({ route, navigation }) => {
                 label="Nome de Usuário"
                 value={username}
                 onChangeText={setUsername}
-                style={{ margin: 10 }}
+                style={{ margin: 10, width: '80%'}}
             />
             <TextInput
-                label="Senha"
+                label="Digite sua senha"
                 value={password}
                 onChangeText={setPassword}
-                style={{ margin: 10 }}
+                secureTextEntry={true}
+                style={[{ margin: 10, width: '80%' }]}
             />
             <TextInput
-                label="Senha"
+                label="Digite novamente sua senha"
                 value={password}
                 onChangeText={setPassword}
-                style={{ margin: 10 }}
+                secureTextEntry={true}
+                style={[{ margin: 10, width: '80%'}]}
             />
             <Pressable style={{ margin: 10 }}></Pressable>
 
