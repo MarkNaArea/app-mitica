@@ -62,6 +62,11 @@ export const Register = ({ route, navigation }) => {
             />
             <Pressable style={{ margin: 10 }}></Pressable>
 
+            <Pressable style={{margin: 10}} onPress={() => navigation.navigate('Login')}>
+                <Text style={globalStyles.text}>Já possui conta? Clique aqui e faça Login</Text>
+            </Pressable>
+            
+
             <View style={globalStyles.row}>
                 <Button
                     mode="contained"
