@@ -11,7 +11,14 @@ export const loginUser = async (username, password) => {
         },
         body: JSON.stringify(userData)
     })
-        .then((response) => response.json())
+        .then((response) => {
+            console.log(response.status)
+            if (response.status === 200) {
+                return response.json()
+            } else {
+                throw new Error('Usuário e/ou senha incorretos');
+            }
+        })
         .then((response) => {
             storage.save({
                 key: "loginToken", // Note: Do not use underscore("_") in key!
@@ -23,7 +30,11 @@ export const loginUser = async (username, password) => {
             // storage.load({key: "loginToken"}).then(response => console.log(response))
             console.log("Login bem sucedido");
             return true;
-        });
+        })
+        .catch(error => {
+            alert(error);
+            return false;
+        })
 };
 
 export const registerUser = async (username, password) => {
@@ -47,6 +58,7 @@ export const registerUser = async (username, password) => {
             alert(
                 "O nome de usuário já existe. Por favor, escolha outro e tente novamente"
             );
+            return false
         }
     })
 };
