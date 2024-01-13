@@ -3,13 +3,30 @@ import { globalStyles } from "../../styles/global";
 import { style } from "./style";
 import { Button, TextInput } from "react-native-paper";
 import { useState } from "react";
+import { loginUser, registerUser } from "../../apiHelper/auth";
 
 export const Register = ({ route, navigation }) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
     const [email, setEmail] = useState("");
 
-    const handleRegister = () => {};
+    const handleRegister = async () => {
+        if (password === confirmPassword) {
+            if (password.length >= 8) {
+                if (await registerUser(username, password)) {
+                    if (await loginUser(username, password)) {
+                        navigation.navigate('Menu')
+                    }
+                }
+                
+            } else {
+                alert("A senha deve ter no mínimo 8 caracteres.")
+            }
+        } else {
+            alert("Senhas diferentes!");
+        }
+    };
 
     return (
         <View style={globalStyles.container}>
@@ -24,21 +41,24 @@ export const Register = ({ route, navigation }) => {
                 label="Nome de Usuário"
                 value={username}
                 onChangeText={setUsername}
-                style={{ margin: 10, width: '80%'}}
+                autoCapitalize="none"
+                style={{ margin: 10, width: "80%" }}
             />
             <TextInput
                 label="Digite sua senha"
-                value={password}
-                onChangeText={setPassword}
+                value={confirmPassword}
+                onChangeText={setConfirmPassword}
+                autoCapitalize="none"
                 secureTextEntry={true}
-                style={[{ margin: 10, width: '80%' }]}
+                style={[{ margin: 10, width: "80%" }]}
             />
             <TextInput
                 label="Digite novamente sua senha"
                 value={password}
                 onChangeText={setPassword}
+                autoCapitalize="none"
                 secureTextEntry={true}
-                style={[{ margin: 10, width: '80%'}]}
+                style={[{ margin: 10, width: "80%" }]}
             />
             <Pressable style={{ margin: 10 }}></Pressable>
 
@@ -46,9 +66,7 @@ export const Register = ({ route, navigation }) => {
                 <Button
                     mode="contained"
                     style={{ margin: 10 }}
-                    onPress={() => {
-                        handleRegister();
-                    }}
+                    onPress={handleRegister}
                 >
                     Registrar
                 </Button>

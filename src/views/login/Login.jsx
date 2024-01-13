@@ -3,10 +3,21 @@ import { globalStyles } from "../../styles/global";
 import { style } from "./style";
 import { Button, TextInput } from "react-native-paper";
 import { useState } from "react";
+import { loginUser } from "../../apiHelper/auth";
 
 export const Login = ({ route, navigation }) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+
+    const handleLogin = async () => {
+        if (username != "" || password != "") {
+            if (await loginUser(username, password)) {
+                navigation.navigate('Menu');
+            }
+        } else {
+            alert("Insira usuário e senha");
+        }
+    };
 
     return (
         <View style={globalStyles.container}>
@@ -21,12 +32,14 @@ export const Login = ({ route, navigation }) => {
                 label="Nome de Usuário"
                 value={username}
                 onChangeText={setUsername}
+                autoCapitalize="none"
                 style={{ margin: 10, width: "80%" }}
             />
             <TextInput
                 label="Senha"
                 value={password}
                 onChangeText={setPassword}
+                autoCapitalize="none"
                 secureTextEntry={true}
                 style={{ margin: 10, width: "80%" }}
             />
@@ -35,12 +48,16 @@ export const Login = ({ route, navigation }) => {
             </Pressable>
 
             <View style={globalStyles.row}>
-                <Button mode="contained" style={{ margin: 10}}>
+                <Button
+                    mode="contained"
+                    style={{ margin: 10 }}
+                    onPress={handleLogin}
+                >
                     Login
                 </Button>
                 <Button
                     mode="contained"
-                    style={{ margin: 10}}
+                    style={{ margin: 10 }}
                     onPress={() => navigation.navigate("Register")}
                 >
                     Registrar
