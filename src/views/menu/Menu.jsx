@@ -2,8 +2,6 @@ import { Text, View } from "react-native"
 import { Button } from "react-native-paper"
 import { globalStyles } from "../../styles/global"
 import { storage } from "../../localStorage/asyncStorage"
-import { useEffect } from "react"
-import { Login } from "../login/Login"
 
 export const Menu = ({routes, navigation}) => {
     const loggoffUser = async () => {
