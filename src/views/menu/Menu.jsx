@@ -1,16 +1,16 @@
 import { Text, View } from "react-native"
 import { Button } from "react-native-paper"
 import { globalStyles } from "../../styles/global"
+import { StackActions, useNavigation } from "@react-navigation/native"
 import { storage } from "../../localStorage/asyncStorage"
 
-export const Menu = ({routes, navigation}) => {
+export const Menu = () => {
+    const navigation = useNavigation();   
+
     const loggoffUser = async () => {
         storage.remove({key: "loginToken"}).then(() => {
             console.log("Usuario deslogado com sucesso")
-            navigation.reset({
-                index: 1,
-                routes: [{ name: 'Login' }],
-              });
+            navigation.dispatch(StackActions.replace('SplashScreen', {fromScreen: 'SplashScreen'}));
         })
     }
 

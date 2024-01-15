@@ -4,15 +4,18 @@ import { style } from "./style";
 import { Button, TextInput } from "react-native-paper";
 import { useState } from "react";
 import { loginUser } from "../../apiHelper/auth";
+import { StackActions, useNavigation } from "@react-navigation/native";
 
-export const Login = ({ route, navigation }) => {
+export const Login = () => {
+
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const navigation = useNavigation();
 
     const handleLogin = async () => {
         if (username != "" || password != "") {
             if (await loginUser(username, password)) {
-                navigation.navigate('Menu');
+                navigation.dispatch(StackActions.replace('MainRoute', {fromScreen: 'MainMenu'}));
             }
         } else {
             alert("Insira usuário e senha");
