@@ -1,6 +1,11 @@
 import { createStackNavigator } from "@react-navigation/stack";
 import { Menu } from "../views/Menu/Menu";
 import { createDrawerNavigator } from "@react-navigation/drawer";
+import { ListCampaigns } from "../views/Campaigns/ListCampaigns/ListCampaigns";
+import { EditCampaign } from "../views/Campaigns/EditCampaign/EditCampaign";
+import { ListCharacters } from "../views/Character/ListCharacters/ListCharacters";
+import { CharacterMenu } from "../views/Character/CharacterMenu/CharacterMenu";
+import { EditCharacter } from "../views/Character/EditCharacter/EditCharacter";
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -20,9 +25,12 @@ export const MainRoute = () => {
                     <Stack.Navigator screenOptions={{ headerShown: false }}>
                         <Stack.Screen
                             name="Minhas Campanhas"
-                            component={Menu}
+                            component={ListCampaigns}
                         />
-                        <Stack.Screen name="Criar Campanha" component={Menu} />
+                        <Stack.Screen
+                            name="Editar Campanha"
+                            component={EditCampaign}
+                        />
                         <Stack.Screen name="Jogar" component={Menu} />
                     </Stack.Navigator>
                 )}
@@ -32,11 +40,15 @@ export const MainRoute = () => {
                     <Stack.Navigator screenOptions={{ headerShown: false }}>
                         <Stack.Screen
                             name="Meus Personagens"
-                            component={Menu}
+                            component={ListCharacters}
                         />
                         <Stack.Screen
                             name="Criar Personagem"
-                            component={Menu}
+                            component={EditCharacter}
+                        />
+                        <Stack.Screen
+                            name="Menu de Personagem"
+                            component={CharacterMenu}
                         />
                     </Stack.Navigator>
                 )}
