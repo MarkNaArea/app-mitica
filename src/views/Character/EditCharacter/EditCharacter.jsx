@@ -22,6 +22,7 @@ export const EditCharacter = ({route, navigation}) => {
                 max_subatt: 10,
                 ca: 10,
                 evolution_points: 0,
+                height: 1.5,
                 attributes: {
                     strength: 0,
                     dexterity: 0,
