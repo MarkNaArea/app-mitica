@@ -16,6 +16,12 @@ export const EditCharacter = ({route, navigation}) => {
                 class: '',
                 race: '',
                 god: '',
+                health: 10,
+                max_health: 10,
+                subatt: 10,
+                max_subatt: 10,
+                ca: 10,
+                evolution_points: 0,
                 attributes: {
                     strength: 0,
                     dexterity: 0,

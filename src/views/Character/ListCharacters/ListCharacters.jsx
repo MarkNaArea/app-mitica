@@ -43,7 +43,7 @@ export const ListCharacters = ({ routes, navigation }) => {
                 icon="plus"
                 style={globalStyles.fab}
                 size={10}
-                label="Nova Campanha"
+                label="Verificar Convites"
                 onPress={() => navigation.navigate("Editar Campanha", {newregister: true})}
             />
         </View>
