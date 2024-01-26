@@ -7,6 +7,7 @@ import { ListCharacters } from "../views/Character/ListCharacters/ListCharacters
 import { CharacterMenu } from "../views/Character/CharacterMenu/CharacterMenu";
 import { EditCharacter } from "../views/Character/EditCharacter/EditCharacter";
 import { WikiMenu } from "../views/Wiki/WikiMenu/WikiMenu";
+import { WikiSkills } from "../views/Wiki/WikiSkills/WikiSkills";
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -61,7 +62,7 @@ export const MainRoute = () => {
                         <Stack.Screen name="Regras" component={Menu} />
                         <Stack.Screen name="Classes" component={Menu} />
                         <Stack.Screen name="Raças" component={Menu} />
-                        <Stack.Screen name="Habilidades" component={Menu} />
+                        <Stack.Screen name="Wiki Habilidades" component={WikiSkills} />
                         <Stack.Screen name="Equipamentos" component={Menu} />
                         <Stack.Screen name="Geografia" component={Menu} />
                     </Stack.Navigator>
