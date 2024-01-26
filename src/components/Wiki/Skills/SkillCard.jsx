@@ -8,7 +8,7 @@ export const SkillCard = (props) => {
     console.log(props)
 
     return (
-        <View style={globalStyles.card}>
+        <View style={[globalStyles.card, {margin: 0}]}>
             <Text style={globalStyles.text}>Nome da Habilidade: {skill.skillname}</Text>
             <Text style={globalStyles.text}>Nivel: {skill.level}</Text>
             <Text style={globalStyles.text}>Classe: {skill.class}</Text>
