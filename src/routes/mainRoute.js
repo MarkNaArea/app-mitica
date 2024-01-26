@@ -6,6 +6,7 @@ import { EditCampaign } from "../views/Campaigns/EditCampaign/EditCampaign";
 import { ListCharacters } from "../views/Character/ListCharacters/ListCharacters";
 import { CharacterMenu } from "../views/Character/CharacterMenu/CharacterMenu";
 import { EditCharacter } from "../views/Character/EditCharacter/EditCharacter";
+import { WikiMenu } from "../views/Wiki/WikiMenu/WikiMenu";
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -56,7 +57,7 @@ export const MainRoute = () => {
             <Drawer.Screen name="Wiki">
                 {() => (
                     <Stack.Navigator screenOptions={{ headerShown: false }}>
-                        <Stack.Screen name="Menu da Wiki" component={Menu} />
+                        <Stack.Screen name="Menu da Wiki" component={WikiMenu} />
                         <Stack.Screen name="Regras" component={Menu} />
                         <Stack.Screen name="Classes" component={Menu} />
                         <Stack.Screen name="Raças" component={Menu} />
