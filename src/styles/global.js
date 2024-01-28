@@ -14,7 +14,7 @@ export const globalStyles = StyleSheet.create({
         alignItems: "start",
         justifyContent: "center",
         padding: 10,
-        margin: 10,
+        margin: 0,
         borderColor: "#11001c",
         borderRadius: 10,
         borderWidth: 10,
