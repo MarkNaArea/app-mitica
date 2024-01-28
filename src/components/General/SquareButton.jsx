@@ -10,7 +10,7 @@ export const SquareButton = (props) => {
     return (
         <Pressable style={styles.button} onPress={onPress}>
             <Image style={styles.icon} source={icon}/>
-            <Text style={globalStyles.text}>{text}</Text>
+            <Text style={[globalStyles.text, {color: 'black'}]}>{text}</Text>
         </Pressable>
     )
 }
