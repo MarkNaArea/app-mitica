@@ -9,6 +9,8 @@ import { EditCharacter } from "../views/Character/EditCharacter/EditCharacter";
 import { WikiMenu } from "../views/Wiki/WikiMenu/WikiMenu";
 import { WikiSkills } from "../views/Wiki/WikiSkills/WikiSkills";
 import { WikiSkillDetails } from "../views/Wiki/WikiSkills/WikiSkillDetails";
+import { WikiRaces } from "../views/Wiki/WikiRaces/WikiRaces";
+import { WikiRaceDetails } from "../views/Wiki/WikiRaces/WikiRaceDetails";
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -62,7 +64,8 @@ export const MainRoute = () => {
                         <Stack.Screen name="Menu da Wiki" component={WikiMenu} />
                         <Stack.Screen name="Regras" component={Menu} />
                         <Stack.Screen name="Classes" component={Menu} />
-                        <Stack.Screen name="Raças" component={Menu} />
+                        <Stack.Screen name="Wiki Raças" component={WikiRaces} />
+                        <Stack.Screen name="Detalhes da Raça" component={WikiRaceDetails} />
                         <Stack.Screen name="Wiki Habilidades" component={WikiSkills} />
                         <Stack.Screen name="Detalhes da Habilidade" component={WikiSkillDetails} />
                         <Stack.Screen name="Equipamentos" component={Menu} />

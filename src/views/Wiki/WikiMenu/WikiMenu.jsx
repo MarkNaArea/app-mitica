@@ -11,41 +11,41 @@ export const WikiMenu = ({ route, navigation }) => {
                     <SquareButton
                         onPress={() => navigation.navigate("Wiki Regras")}
                         buttonText="Regras"
-                        buttonIcon={require("../../../assets/icons/graduation-cap.png")}
+                        buttonIcon={require("../../../assets/icons/menu/graduation-cap.png")}
                     />
                     <SquareButton
                         onPress={() => navigation.navigate("Wiki Raças")}
                         buttonText="Raças"
-                        buttonIcon={require("../../../assets/icons/paw.png")}
+                        buttonIcon={require("../../../assets/icons/menu/paw.png")}
                     />
                     <SquareButton
                         onPress={() => navigation.navigate("Wiki Classes")}
                         buttonText="Classes"
-                        buttonIcon={require("../../../assets/icons/sword.png")}
+                        buttonIcon={require("../../../assets/icons/menu/sword.png")}
                     />
                 </View>
                 <View style={globalStyles.row}>
                     <SquareButton
                         onPress={() => navigation.navigate("Wiki Habilidades")}
-                        buttonText="Habilidaades"
-                        buttonIcon={require("../../../assets/icons/bolt.png")}
+                        buttonText="Habilidades"
+                        buttonIcon={require("../../../assets/icons/menu/bolt.png")}
                     />
                     <SquareButton
                         onPress={() => navigation.navigate("Wiki Itens")}
                         buttonText="Itens"
-                        buttonIcon={require("../../../assets/icons/backpack.png")}
+                        buttonIcon={require("../../../assets/icons/menu/backpack.png")}
                     />
                     <SquareButton
                         onPress={() => navigation.navigate("Wiki Deuses")}
                         buttonText="Deuses"
-                        buttonIcon={require("../../../assets/icons/yeti.png")}
+                        buttonIcon={require("../../../assets/icons/menu/yeti.png")}
                     />
                 </View>
                 <View style={globalStyles.row}>
                     <SquareButton
                         onPress={() => navigation.navigate("Wiki Geografia")}
                         buttonText="Geografia"
-                        buttonIcon={require("../../../assets/icons/way.png")}
+                        buttonIcon={require("../../../assets/icons/menu/way.png")}
                     />
                 </View>
             </View>
