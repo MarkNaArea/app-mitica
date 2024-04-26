@@ -10,20 +10,38 @@ export const WikiSkillDetails = ({ route, navigation }) => {
         <ScrollView style={globalStyles.view}>
             <View style={globalStyles.card}>
                 <Text style={globalStyles.text}>
-                    Nome da Habilidade: {skill.skillname}
+                    Nome da Habilidade: {skill.name}
                 </Text>
                 <Text style={globalStyles.text}>Nivel: {skill.level}</Text>
-                <Text style={globalStyles.text}>Classe: {skill.class}</Text>
-                <Text style={globalStyles.text}>Tipo: {skill.type}</Text>
+                <Text style={globalStyles.text}>
+                    Categoria: {skill.category}
+                </Text>
+                <Text style={globalStyles.text}>Elemento: {skill.element}</Text>
             </View>
             <View style={globalStyles.card}>
-                <Text style={globalStyles.text}>Dano: {skill.damage}</Text>
-                <Text style={globalStyles.text}>Elemento: {skill.elements}</Text>
                 <Text style={globalStyles.text}>Area: {skill.area}</Text>
                 <Text style={globalStyles.text}>Alcance: {skill.range}</Text>
             </View>
             <View style={globalStyles.card}>
-                <Text style={globalStyles.text}>Descrição: {skill.description}</Text>
+                <Text style={globalStyles.text}>
+                    Dano: {skill.primary_class}
+                </Text>
+                <Text style={globalStyles.text}>
+                    Elemento: {skill.primary_damage}
+                </Text>
+            </View>
+            <View style={globalStyles.card}>
+                <Text style={globalStyles.text}>
+                    Dano: {skill.secondary_class}
+                </Text>
+                <Text style={globalStyles.text}>
+                    Elemento: {skill.secondary_damage}
+                </Text>
+            </View>
+            <View style={globalStyles.card}>
+                <Text style={globalStyles.text}>
+                    Descrição: {skill.description}
+                </Text>
             </View>
         </ScrollView>
     );

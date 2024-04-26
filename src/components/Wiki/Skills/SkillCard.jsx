@@ -7,10 +7,11 @@ export const SkillCard = (props) => {
 
     return (
         <Pressable style={[globalStyles.card, {margin: 0}]} onPress={() => navigation.navigate('Detalhes da Habilidade', { skill: skill })}>
-            <Text style={globalStyles.text}>Nome da Habilidade: {skill.skillname}</Text>
+            <Text style={globalStyles.text}>Nome da Habilidade: {skill.name}</Text>
             <Text style={globalStyles.text}>Nivel: {skill.level}</Text>
-            <Text style={globalStyles.text}>Classe: {skill.class}</Text>
-            <Text style={globalStyles.text}>Tipo: {skill.type}</Text>
+            <Text style={globalStyles.text}>Classe Primária: {skill.primary_class}</Text>
+            <Text style={globalStyles.text}>Classe Secundária: {skill.secondary_class}</Text>
+            <Text style={globalStyles.text}>Categoria: {skill.category}</Text>
         </Pressable>
     )
 }
