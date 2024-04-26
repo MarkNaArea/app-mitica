@@ -8,7 +8,7 @@ export const getSkills = async () => {
                 throw new Error("Erro ao buscar campanhas");
             }
         })
-        .then(responseJson => responseJson.data);
+        .then(responseJson => responseJson);
 };
 
 export const getSkillById = async (id) => {
