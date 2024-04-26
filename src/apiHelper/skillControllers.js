@@ -1,4 +1,5 @@
 export const getSkills = async () => {
+    console.log(process.env.BASE_URL)
     return fetch(process.env.BASE_URL + "/skills/", { method: "GET" })
         .then(response => {
             if (response.status === 200 || response.status === 304) {

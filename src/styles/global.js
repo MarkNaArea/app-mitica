@@ -30,6 +30,11 @@ export const globalStyles = StyleSheet.create({
         fontFamily: 'Poppins-Regular'
     },
 
+    blacktext: {
+        color: '#000000',
+        fontFamily: 'Poppins-Regular'
+    },
+
     title : {
         color: '#FFFFFF',
         fontFamily: 'Poppins-Bold',
