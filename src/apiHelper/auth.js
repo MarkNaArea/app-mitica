@@ -4,7 +4,7 @@ export const loginUser = async (username, password) => {
     console.log("Login");
     const userData = { username: username, password: password };
 
-    return fetch(process.env.BASE_URL + "/auth/login/", {
+    return fetch(process.env.EXPO_PUBLIC_API_URL + "/users/login/", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -39,7 +39,7 @@ export const loginUser = async (username, password) => {
 
 export const registerUser = async (username, password) => {
     console.log("Registro");
-    return fetch(process.env.BASE_URL + "/auth/register", {
+    return fetch(process.env.EXPO_PUBLIC_API_URL + "/users/register", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

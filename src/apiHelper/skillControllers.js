@@ -1,6 +1,6 @@
 export const getSkills = async () => {
-    console.log(process.env.BASE_URL)
-    return fetch(process.env.BASE_URL + "/skills/", { method: "GET" })
+    console.log(process.env.EXPO_PUBLIC_API_URL)
+    return fetch(process.env.EXPO_PUBLIC_API_URL + "/skills/", { method: "GET" })
         .then(response => {
             if (response.status === 200 || response.status === 304) {
                 return response.json();
@@ -13,7 +13,7 @@ export const getSkills = async () => {
 };
 
 export const getSkillById = async (id) => {
-    return fetch(process.env.BASE_URL + "/skills/?id=" + id, { method: "GET" })
+    return fetch(process.env.EXPO_PUBLIC_API_URL + "/skills/search/?id=" + id, { method: "GET" })
         .then((response) => {
             if (response.status === 200 || response.status === 304) {
                 return response.json();
@@ -25,7 +25,7 @@ export const getSkillById = async (id) => {
 };
 
 export const postSkill = async (skill) => {
-    return fetch(process.env.BASE_URL + "/skills/", {
+    return fetch(process.env.EXPO_PUBLIC_API_URL + "/skills/", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

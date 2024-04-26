@@ -1,5 +1,5 @@
 export const getRaces = async () => {
-    return fetch(process.env.BASE_URL + "/wikiraces/", { method: "GET" })
+    return fetch(process.env.EXPO_PUBLIC_API_URL + "/wikiraces/", { method: "GET" })
         .then(response => {
             if (response.status === 200 || response.status === 304) {
                 return response.json();
@@ -12,7 +12,7 @@ export const getRaces = async () => {
 };
 
 export const getRaceById = async (id) => {
-    return fetch(process.env.BASE_URL + "/wikiraces/?id=" + id, { method: "GET" })
+    return fetch(process.env.EXPO_PUBLIC_API_URL + "/wikiraces/?id=" + id, { method: "GET" })
         .then((response) => {
             if (response.status === 200 || response.status === 304) {
                 return response.json();
@@ -24,7 +24,7 @@ export const getRaceById = async (id) => {
 };
 
 export const postRace = async (skill) => {
-    return fetch(process.env.BASE_URL + "/wikiraces/", {
+    return fetch(process.env.EXPO_PUBLIC_API_URL + "/wikiraces/", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

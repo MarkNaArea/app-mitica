@@ -1,5 +1,5 @@
 export const getInvites = async () => {
-    return fetch(process.env.BASE_URL + "/campaign_invites/", { method: "GET" })
+    return fetch(process.env.EXPO_PUBLIC_API_URL + "/campaign_invites/", { method: "GET" })
         .then(response => {
             if (response.status === 200 || response.status === 304) {
                 return response.json();
@@ -12,7 +12,7 @@ export const getInvites = async () => {
 };
 
 export const getInvitesByPlayerId = async (id) => {
-    return fetch(process.env.BASE_URL + "/campaign_invites/?id=" + id, { method: "GET" })
+    return fetch(process.env.EXPO_PUBLIC_API_URL + "/campaign_invites/search/?id=" + id, { method: "GET" })
         .then((response) => {
             if (response.status === 200 || response.status === 304) {
                 return response.json();
@@ -24,7 +24,7 @@ export const getInvitesByPlayerId = async (id) => {
 };
 
 export const postInvite = async (character) => {
-    return fetch(process.env.BASE_URL + "/campaign_invites/", {
+    return fetch(process.env.EXPO_PUBLIC_API_URL + "/campaign_invites/", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

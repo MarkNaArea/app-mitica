@@ -1,5 +1,5 @@
 export const getCampanhas = async () => {
-    return fetch(process.env.BASE_URL + "/campanhas/", { method: "GET" })
+    return fetch(process.env.EXPO_PUBLIC_API_URL + "/campanhas/", { method: "GET" })
         .then(response => {
             if (response.status === 200 || response.status === 304) {
                 return response.json();
@@ -11,8 +11,8 @@ export const getCampanhas = async () => {
         .then(responseJson => responseJson);
 };
 
-export const getCampanhaById = (id) => {
-    return fetch(process.env.BASE_URL + "/campanhas/?id=" + id, { method: "GET" })
+export const getCampanhaById = async (id) => {
+    return fetch(process.env.EXPO_PUBLIC_API_URL + "/campanhas/search/?id=" + id, { method: "GET" })
         .then((response) => {
             if (response.status === 200 || response.status === 304) {
                 return response.json();
@@ -23,8 +23,8 @@ export const getCampanhaById = (id) => {
         .then((responseJson) => responseJson);
 };
 
-export const postCampanha = (campanha) => {
-    return fetch(process.env.BASE_URL + "/campanhas/", {
+export const postCampanha = async (campanha) => {
+    return fetch(process.env.EXPO_PUBLIC_API_URL + "/campanhas/", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

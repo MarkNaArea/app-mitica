@@ -1,5 +1,5 @@
 export const getCharacter = async () => {
-    return fetch(process.env.BASE_URL + "/characters/", { method: "GET" })
+    return fetch(process.env.EXPO_PUBLIC_API_URL + "/characters/", { method: "GET" })
         .then(response => {
             if (response.status === 200 || response.status === 304) {
                 return response.json();
@@ -12,7 +12,7 @@ export const getCharacter = async () => {
 };
 
 export const getCharacterById = async (id) => {
-    return fetch(process.env.BASE_URL + "/characters/?id=" + id, { method: "GET" })
+    return fetch(process.env.EXPO_PUBLIC_API_URL + "/characters/search/?id=" + id, { method: "GET" })
         .then((response) => {
             if (response.status === 200 || response.status === 304) {
                 return response.json();
@@ -24,7 +24,7 @@ export const getCharacterById = async (id) => {
 };
 
 export const postCharacter = async (character) => {
-    return fetch(process.env.BASE_URL + "/characters/", {
+    return fetch(process.env.EXPO_PUBLIC_API_URL + "/characters/", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
