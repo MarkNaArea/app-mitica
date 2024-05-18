@@ -45,7 +45,7 @@ export const WikiSkills = ({ route, navigation }) => {
             setSearch(query);
 
             let filteredSkills = fullSkills.filter((item) =>
-                item.skillname.toLowerCase().includes(query.toLowerCase())
+                item.name.toLowerCase().includes(query.toLowerCase())
             );
             setSkills(filteredSkills);
         }
