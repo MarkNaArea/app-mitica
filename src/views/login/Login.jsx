@@ -27,9 +27,7 @@ export const Login = () => {
             <Text style={globalStyles.title}>Login</Text>
             <Image
                 style={style.logo}
-                source={{
-                    uri: "https://freepngimg.com/thumb/dice/90810-and-dice-d20-dungeons-system-dragons-black.png"
-                }}
+                source={require('../../assets/images/logo.png')}
             />
             <TextInput
                 label="Nome de Usuário"
