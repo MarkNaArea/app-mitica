@@ -1,5 +1,4 @@
 export const getSkills = async () => {
-    console.log(process.env.EXPO_PUBLIC_API_URL)
     return fetch(process.env.EXPO_PUBLIC_API_URL + "/skills/", { method: "GET" })
         .then(response => {
             if (response.status === 200 || response.status === 304) {

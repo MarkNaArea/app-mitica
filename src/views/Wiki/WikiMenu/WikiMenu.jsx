@@ -36,7 +36,7 @@ export const WikiMenu = ({ route, navigation }) => {
                         buttonIcon={require("../../../assets/icons/menu/backpack.png")}
                     />
                     <SquareButton
-                        onPress={() => navigation.navigate("Wiki Deuses")}
+                        onPress={() => navigation.navigate("Wiki Selecionar Grupo de Deuses")}
                         buttonText="Deuses"
                         buttonIcon={require("../../../assets/icons/menu/yeti.png")}
                     />
