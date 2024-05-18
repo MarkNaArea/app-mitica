@@ -1,10 +1,17 @@
-import { FlatList, Image, Pressable, Text, View } from "react-native";
+import {
+    FlatList,
+    Image,
+    Pressable,
+    ScrollView,
+    Text,
+    View
+} from "react-native";
 import { getSkills } from "../../../apiHelper/skillControllers";
 import { useFocusEffect } from "@react-navigation/native";
 import { useCallback, useRef, useState } from "react";
 import { globalStyles } from "../../../styles/global";
 import { SkillCard } from "../../../components/Wiki/Skills/SkillCard";
-import { Chip, Icon, TextInput } from "react-native-paper";
+import { Button, Chip, Icon, TextInput } from "react-native-paper";
 import { RefreshControl } from "react-native-gesture-handler";
 import BottomSheet from "react-native-gesture-bottom-sheet";
 
@@ -51,6 +58,102 @@ export const WikiSkills = ({ route, navigation }) => {
         }
     };
     const uniqueValues = new Set();
+
+    const uniqueClasses = fullSkills
+        .map((obj) => {
+            const value = obj.primary_class; // Change 'name' to the property you want
+            if (!uniqueValues.has(value)) {
+                uniqueValues.add(value);
+                return { key: value }; // If you need a 'key' property for FlatList
+            }
+            return null;
+        })
+        .filter((item) => item !== null);
+
+    const uniqueSecondaryClasses = fullSkills
+        .map((obj) => {
+            const value = obj.secondary_class; // Change 'name' to the property you want
+            if (!uniqueValues.has(value)) {
+                uniqueValues.add(value);
+                return { key: value }; // If you need a 'key' property for FlatList
+            }
+            return null;
+        })
+        .filter((item) => item !== null);
+
+    const uniqueElements = fullSkills
+        .map((obj) => {
+            const value = obj.element; // Change 'name' to the property you want
+            if (!uniqueValues.has(value)) {
+                uniqueValues.add(value);
+                return { key: value }; // If you need a 'key' property for FlatList
+            }
+            return null;
+        })
+        .filter((item) => item !== null);
+
+    const uniqueLevels = fullSkills
+        .map((obj) => {
+            const value = obj.level; // Change 'name' to the property you want
+            if (!uniqueValues.has(value)) {
+                uniqueValues.add(value);
+                return { key: value }; // If you need a 'key' property for FlatList
+            }
+            return null;
+        })
+        .filter((item) => item !== null);
+
+    const uniqueCategories = fullSkills
+        .map((obj) => {
+            const value = obj.category; // Change 'name' to the property you want
+            if (!uniqueValues.has(value)) {
+                uniqueValues.add(value);
+                return { key: value }; // If you need a 'key' property for FlatList
+            }
+            return null;
+        })
+        .filter((item) => item !== null);
+
+    const handleChipPress = (item_id, setValueFunction) => {
+        setValueFunction((prev) => {
+            if (prev.includes(item_id)) {
+                return prev.filter((value) => value !== item_id);
+            }
+            return [...prev, item_id];
+        });
+    };
+
+    const handleFilter = () => {
+        let filteredSkills = fullSkills.filter((item) => {
+            let primaryClass = primaryClassFilter.length
+                ? primaryClassFilter.includes(item.primary_class)
+                : true;
+            let secondaryClass = secondaryClassFilter.length
+                ? secondaryClassFilter.includes(item.secondary_class)
+                : true;
+            let element = elementFilter.length
+                ? elementFilter.includes(item.element)
+                : true;
+            let level = levelFilter.length
+                ? levelFilter.includes(item.level)
+                : true;
+            let category = categoryFilter.length
+                ? categoryFilter.includes(item.category)
+                : true;
+
+            return primaryClass && secondaryClass && element && level && category;
+        });
+        setSkills(filteredSkills);
+        filterBottomSheet.current.close();
+    };
+
+    const cleanAllFilters = () => {
+        setPrimaryClassFilter([]);
+        setSecondaryClassFilter([]);
+        setElementFilter([]);
+        setLevelFilter([]);
+        setCategoryFilter([]);
+    };
 
     return (
         <View style={globalStyles.view}>
@@ -107,35 +210,127 @@ export const WikiSkills = ({ route, navigation }) => {
                 <View style={[globalStyles.column, { alignItems: "center" }]}>
                     <Text style={globalStyles.blacktext}>Filtro</Text>
                     {fullSkills && (
-                        <View
-                            style={{
-                                flexDirection: "row", // Arrange items horizontally
-                                flexWrap: "wrap", // Wrap items to the next line when necessary
-                                alignItems: "flex-start", // Align items at the start of the container
-                                justifyContent: "flex-start" // Align items at the start of the container
-                            }}
-                        >
+                        <ScrollView style={{padding: 8}}>
+                            <Text style={globalStyles.blacktext}>
+                                Classe Primária
+                            </Text>
                             <FlatList
-                                data={fullSkills
-                                    .map((obj) => {
-                                        const value = obj.primary_class; // Change 'name' to the property you want
-                                        if (!uniqueValues.has(value)) {
-                                            uniqueValues.add(value);
-                                            return { key: value }; // If you need a 'key' property for FlatList
-                                        }
-                                        return null;
-                                    })
-                                    .filter((item) => item !== null)}
+                                data={uniqueClasses}
                                 renderItem={({ item }) => (
-                                    <Chip style={{ margin: 5 }}>
+                                    <Chip
+                                        style={{ margin: 5 }}
+                                        selected={primaryClassFilter.includes(
+                                            item.key
+                                        )}
+                                        onPress={() => {
+                                            handleChipPress(
+                                                item.key,
+                                                setPrimaryClassFilter
+                                            );
+                                        }}
+                                    >
                                         {item.key}
                                     </Chip>
                                 )}
                                 keyExtractor={(item, index) => index.toString()}
-                                horizontal={true} // Ensure horizontal scrolling
-                                contentContainerStyle={{width: "100%"}}
+                                contentContainerStyle={{ width: "100%" }}
+                                numColumns={3}
                             />
-                        </View>
+                            <Text style={globalStyles.blacktext}>
+                                Classe Secundária
+                            </Text>
+                            <FlatList
+                                data={uniqueSecondaryClasses}
+                                renderItem={({ item }) => (
+                                    <Chip
+                                        style={{ margin: 5 }}
+                                        selected={secondaryClassFilter.includes(
+                                            item.key
+                                        )}
+                                        onPress={() => {
+                                            handleChipPress(
+                                                item.key,
+                                                setSecondaryClassFilter
+                                            );
+                                        }}
+                                    >
+                                        {item.key}
+                                    </Chip>
+                                )}
+                                keyExtractor={(item, index) => index.toString()}
+                                contentContainerStyle={{ width: "100%" }}
+                                numColumns={3}
+                            />
+                            <Text style={globalStyles.blacktext}>Elemento</Text>
+                            <FlatList
+                                data={uniqueElements}
+                                renderItem={({ item }) => (
+                                    <Chip
+                                        style={{ margin: 5 }}
+                                        selected={elementFilter.includes(
+                                            item.key
+                                        )}
+                                        onPress={() => {
+                                            handleChipPress(
+                                                item.key,
+                                                setElementFilter
+                                            );
+                                        }}
+                                    >
+                                        {item.key}
+                                    </Chip>
+                                )}
+                                keyExtractor={(item, index) => index.toString()}
+                                contentContainerStyle={{ width: "100%" }}
+                                numColumns={3}
+                            />
+                            <Text style={globalStyles.blacktext}>Nível</Text>
+                            <FlatList
+                                data={uniqueLevels}
+                                renderItem={({ item }) => (
+                                    <Chip
+                                        style={{ margin: 5 }}
+                                        selected={levelFilter.includes(item.key)}
+                                        onPress={() => {
+                                            handleChipPress(
+                                                item.key,
+                                                setLevelFilter
+                                            );
+                                        }}
+                                    >
+                                        {item.key}
+                                    </Chip>
+                                )}
+                                keyExtractor={(item, index) => index.toString()}
+                                contentContainerStyle={{ width: "100%" }}
+                                numColumns={3}
+                            />
+                            <Text style={globalStyles.blacktext}>Categoria</Text>
+                            <FlatList
+                                data={uniqueCategories}
+                                renderItem={({ item }) => (
+                                    <Chip
+                                        style={{ margin: 5 }}
+                                        selected={categoryFilter.includes(
+                                            item.key
+                                        )}
+                                        onPress={() => {
+                                            handleChipPress(
+                                                item.key,
+                                                setCategoryFilter
+                                            );
+                                        }}
+                                    >
+                                        {item.key}
+                                    </Chip>
+                                )}
+                                keyExtractor={(item, index) => index.toString()}
+                                contentContainerStyle={{ width: "100%" }}
+                                numColumns={3}
+                            />
+                            <Button mode='contained' onPress={handleFilter}>Filtrar</Button>
+                            <Button style={{marginBottom: 50}} onPress={cleanAllFilters}>Limpar Filtros</Button>
+                        </ScrollView>
                     )}
                 </View>
             </BottomSheet>
