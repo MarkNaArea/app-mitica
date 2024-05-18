@@ -14,10 +14,12 @@ import { WikiRaceDetails } from "../views/Wiki/WikiRaces/WikiRaceDetails";
 import { WikiClasses } from "../views/Wiki/WikiClasses/WikiClasses";
 import { WikiRules } from "../views/Wiki/WikiRules/WikiRules";
 import { WikiItems } from "../views/Wiki/WikiItems/WikiItems";
-import { WikiGeography } from "../views/Wiki/WikiGeography/WikiGeography";
 import { WikiSelectGodGroup } from "../views/Wiki/WikiGods/WikiSelectGodGroup";
 import { WikiListGods } from "../views/Wiki/WikiGods/WikiListGods";
 import { WikiGodDetails } from "../views/Wiki/WikiGods/WikiGodDetails";
+import { WikiGeographyMenu } from "../views/Wiki/WikiGeography/WikiGeographyMenu";
+import { WikiListCities } from "../views/Wiki/WikiGeography/WikiListCities";
+import { WikiCityDetails } from "../views/Wiki/WikiGeography/WikiCityDetails";
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -76,7 +78,9 @@ export const MainRoute = () => {
                         <Stack.Screen name="Wiki Habilidades" component={WikiSkills} />
                         <Stack.Screen name="Detalhes da Habilidade" component={WikiSkillDetails} />
                         <Stack.Screen name="Wiki Itens" component={WikiItems} />
-                        <Stack.Screen name="Wiki Geografia" component={WikiGeography} />
+                        <Stack.Screen name="Wiki Geografia" component={WikiGeographyMenu} />
+                        <Stack.Screen name="Wiki Lista Cidades" component={WikiListCities} />
+                        <Stack.Screen name="Wiki Detalhes Cidade" component={WikiCityDetails} />
                         <Stack.Screen name="Wiki Selecionar Grupo de Deuses" component={WikiSelectGodGroup} />
                         <Stack.Screen name="Wiki Lista de Deuses" component={WikiListGods} />
                         <Stack.Screen name="Wiki Detalhes do Deus" component={WikiGodDetails} />
