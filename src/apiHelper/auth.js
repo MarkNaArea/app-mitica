@@ -1,7 +1,6 @@
 import { storage } from "../localStorage/asyncStorage";
 
 export const loginUser = async (username, password) => {
-    console.log("Login");
     const userData = { username: username, password: password };
 
     return fetch(process.env.EXPO_PUBLIC_API_URL + "/users/login/", {
