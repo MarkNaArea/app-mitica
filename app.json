@@ -34,11 +34,20 @@
     },
     "plugins": [
       "expo-font",
-      ["expo-build-properties", {
-        "android": {
-          "usesCleartextTraffic": true
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "usesCleartextTraffic": true
+          }
         }
-      }]
-    ]
+      ]
+    ],
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/2c74ab3b-40e7-4e8e-b350-45aef6f7c208"
+    }
   }
 }

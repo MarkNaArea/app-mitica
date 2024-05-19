@@ -37,19 +37,19 @@ export const ListCharacters = ({ routes, navigation }) => {
             />
             <FlatList
                 data={characters}
-                renderItem={(item) => (
-                    <ListCharacterItem
-                        character={item}
-                        navigation={navigation}
-                    />
-                )}
-                keyExtractor={(item) => item.id}
+                keyExtractor={(item) => item._id}
                 refreshControl={
                     <RefreshControl
                         refreshing={refreshing}
                         onRefresh={onRefresh}
                     />
                 }
+                renderItem={(item) => (
+                    <ListCharacterItem
+                        character={item}
+                        navigation={navigation}
+                    />
+                )}
             />
             <FAB
                 icon="plus"
