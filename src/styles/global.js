@@ -1,11 +1,9 @@
 import { StyleSheet } from "react-native";
-import { shadow } from "react-native-paper";
 
 export const globalStyles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: "#11001c",
-        alignItems: "center",
         padding: 10
     },
 
@@ -14,7 +12,8 @@ export const globalStyles = StyleSheet.create({
         alignItems: "start",
         justifyContent: "center",
         padding: 10,
-        margin: 6,
+        marginVertical: 6,
+        marginHorizontal: 12,
         shadowColor: "black",
         shadowOffset: {
             width: 0,

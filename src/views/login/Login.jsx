@@ -28,7 +28,7 @@ export const Login = () => {
     };
 
     return (
-        <View style={globalStyles.container}>
+        <View style={[globalStyles.container, {justifyContent: 'center'}]}>
             <LinearGradient
                 // Background Linear Gradient
                 colors={LinearBackgroundColors}

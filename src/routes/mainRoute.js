@@ -20,6 +20,7 @@ import { WikiGodDetails } from "../views/Wiki/WikiGods/WikiGodDetails";
 import { WikiGeographyMenu } from "../views/Wiki/WikiGeography/WikiGeographyMenu";
 import { WikiListCities } from "../views/Wiki/WikiGeography/WikiListCities";
 import { WikiCityDetails } from "../views/Wiki/WikiGeography/WikiCityDetails";
+import { WikiClassDetail } from "../views/Wiki/WikiClasses/WikiClassDetail";
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -73,6 +74,7 @@ export const MainRoute = () => {
                         <Stack.Screen name="Menu da Wiki" component={WikiMenu} />
                         <Stack.Screen name="Wiki Regras" component={WikiRules} />
                         <Stack.Screen name="Wiki Classes" component={WikiClasses} />
+                        <Stack.Screen name="Wiki Detalhes da Classe" component={WikiClassDetail} />
                         <Stack.Screen name="Wiki Raças" component={WikiRaces} />
                         <Stack.Screen name="Detalhes da Raça" component={WikiRaceDetails} />
                         <Stack.Screen name="Wiki Habilidades" component={WikiSkills} />
