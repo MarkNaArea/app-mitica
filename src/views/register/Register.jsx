@@ -6,6 +6,7 @@ import { useState } from "react";
 import { loginUser, registerUser } from "../../apiHelper/auth";
 import { LinearGradient } from "expo-linear-gradient";
 import { LinearBackgroundColors } from "../../constants/styleConstants";
+import { StackActions } from "@react-navigation/native";
 
 export const Register = ({ route, navigation }) => {
     const [username, setUsername] = useState("");
@@ -14,11 +15,21 @@ export const Register = ({ route, navigation }) => {
     const [email, setEmail] = useState("");
 
     const handleRegister = async () => {
+        if (!username || !password || !confirmPassword || !email) {
+            alert("Preencha todos os campos!");
+            return;
+        }
+
         if (password === confirmPassword) {
             if (password.length >= 8) {
-                if (await registerUser(username, password)) {
+                if (await registerUser(username, password, email)) {
                     if (await loginUser(username, password)) {
-                        navigation.navigate("Menu");
+                        alert("Registro bem sucedido!")
+                        navigation.dispatch(
+                            StackActions.replace("MainRoute", {
+                                fromScreen: "MainMenu"
+                            })
+                        );
                     }
                 }
             } else {
@@ -47,7 +58,6 @@ export const Register = ({ route, navigation }) => {
                 source={require("../../assets/images/logo.png")}
             />
             <Divider style={{marginVertical: 20}}/>
-            <Text style={globalStyles.text}>Nome de Usuário</Text>
             <TextInput
                 placeholder="Digite o Nome de Usuário"
                 value={username}
@@ -55,7 +65,13 @@ export const Register = ({ route, navigation }) => {
                 autoCapitalize="none"
                 style={globalStyles.input}
             />
-            <Text style={globalStyles.text}>Senha</Text>
+            <TextInput
+                placeholder="Digite o Email"
+                value={email}
+                onChangeText={setEmail}
+                autoCapitalize="none"
+                style={globalStyles.input}
+            />
             <TextInput
                 placeholder="Digite sua senha"
                 value={confirmPassword}
@@ -64,7 +80,6 @@ export const Register = ({ route, navigation }) => {
                 secureTextEntry={true}
                 style={globalStyles.input}
             />
-            <Text style={globalStyles.text}>Repita a senha</Text>
             <TextInput
                 placeholder="Digite novamente sua senha"
                 value={password}

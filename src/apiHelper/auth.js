@@ -36,7 +36,7 @@ export const loginUser = async (username, password) => {
         })
 };
 
-export const registerUser = async (username, password) => {
+export const registerUser = async (username, password, email) => {
     console.log("Registro");
     return fetch(process.env.EXPO_PUBLIC_API_URL + "/users/register", {
         method: "POST",
@@ -45,7 +45,8 @@ export const registerUser = async (username, password) => {
         },
         body: JSON.stringify({
             username: username,
-            password: password
+            password: password,
+            email: email
         })
     }).then((response) => {
         console.log(response.status)
