@@ -1,7 +1,7 @@
-import { Image, Pressable, Text, View } from "react-native";
+import { Image, Pressable, Text, TextInput, View } from "react-native";
 import { globalStyles } from "../../styles/global";
 import { style } from "./style";
-import { Button, TextInput } from "react-native-paper";
+import { Button, Divider } from "react-native-paper";
 import { useState } from "react";
 import { loginUser } from "../../apiHelper/auth";
 import { StackActions, useNavigation } from "@react-navigation/native";
@@ -28,7 +28,7 @@ export const Login = () => {
     };
 
     return (
-        <View style={[globalStyles.container, {justifyContent: 'center'}]}>
+        <View style={[globalStyles.container, {justifyContent: 'center', alignItems: 'center'}]}>
             <LinearGradient
                 // Background Linear Gradient
                 colors={LinearBackgroundColors}
@@ -39,20 +39,23 @@ export const Login = () => {
                 style={style.logo}
                 source={require("../../assets/images/logo.png")}
             />
+            <Divider style={{marginVertical: 20}}/>
+            <Text style={globalStyles.text}>Nome de Usuário</Text>    
             <TextInput
-                label="Nome de Usuário"
+                placeholder="Digite seu Nome de Usuário"
                 value={username}
                 onChangeText={setUsername}
                 autoCapitalize="none"
-                style={{ margin: 10, width: "80%" }}
+                style={globalStyles.input}
             />
+            <Text style={globalStyles.text}>Senha</Text>    
             <TextInput
-                label="Senha"
+                placeholder="Digite sua senha"
                 value={password}
                 onChangeText={setPassword}
                 autoCapitalize="none"
                 secureTextEntry={true}
-                style={{ margin: 10, width: "80%" }}
+                style={globalStyles.input}
             />
             <Pressable style={{ margin: 10 }}>
                 <Text style={globalStyles.text}>Esqueceu sua senha?</Text>

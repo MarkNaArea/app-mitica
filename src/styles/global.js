@@ -73,5 +73,18 @@ export const globalStyles = StyleSheet.create({
         right: 0,
         top: 0,
         height: '100%'
+    },
+
+    input: {
+        margin: 10,
+        height: 42,
+        width: "80%",
+        backgroundColor: 'white',
+        borderRadius: 30,
+        borderWidth: 1,
+        borderColor: 'black',
+        paddingLeft: 16,
+        fontFamily: 'Poppins-Regular',
+        color: 'black',
     }
 })

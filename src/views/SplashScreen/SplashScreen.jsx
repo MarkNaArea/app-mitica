@@ -23,13 +23,11 @@ export const SplashScreen = () => {
     console.log(isLogged)
 
     return (
-        <View style={globalStyles.container}>
+        <View style={[globalStyles.view, {alignItems: 'center', justifyContent: 'center'}]}>
             <Text style={globalStyles.title}>Mítica RPG APP</Text>
             <Image
                 style={style.logo}
-                source={{
-                    uri: "https://freepngimg.com/thumb/dice/90810-and-dice-d20-dungeons-system-dragons-black.png"
-                }}
+                source={require("../../assets/images/logo.png")}
                 onLoadEnd={ () => {
                     isLogged
                         ? navigation.dispatch(StackActions.replace('MainRoute', {fromScreen: 'MainMenu'}))

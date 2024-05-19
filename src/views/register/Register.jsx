@@ -1,7 +1,7 @@
-import { Image, Pressable, Text, View } from "react-native";
+import { Image, Pressable, Text, View, TextInput } from "react-native";
 import { globalStyles } from "../../styles/global";
 import { style } from "./style";
-import { Button, TextInput } from "react-native-paper";
+import { Button, Divider } from "react-native-paper";
 import { useState } from "react";
 import { loginUser, registerUser } from "../../apiHelper/auth";
 import { LinearGradient } from "expo-linear-gradient";
@@ -18,12 +18,11 @@ export const Register = ({ route, navigation }) => {
             if (password.length >= 8) {
                 if (await registerUser(username, password)) {
                     if (await loginUser(username, password)) {
-                        navigation.navigate('Menu')
+                        navigation.navigate("Menu");
                     }
                 }
-                
             } else {
-                alert("A senha deve ter no mínimo 8 caracteres.")
+                alert("A senha deve ter no mínimo 8 caracteres.");
             }
         } else {
             alert("Senhas diferentes!");
@@ -31,7 +30,12 @@ export const Register = ({ route, navigation }) => {
     };
 
     return (
-        <View style={globalStyles.container}>
+        <View
+            style={[
+                globalStyles.container,
+                { justifyContent: "center", alignItems: "center" }
+            ]}
+        >
             <LinearGradient
                 // Background Linear Gradient
                 colors={LinearBackgroundColors}
@@ -40,39 +44,44 @@ export const Register = ({ route, navigation }) => {
             <Text style={globalStyles.title}>Registro</Text>
             <Image
                 style={style.logo}
-                source={{
-                    uri: "https://freepngimg.com/thumb/dice/90810-and-dice-d20-dungeons-system-dragons-black.png"
-                }}
+                source={require("../../assets/images/logo.png")}
             />
+            <Divider style={{marginVertical: 20}}/>
+            <Text style={globalStyles.text}>Nome de Usuário</Text>
             <TextInput
-                label="Nome de Usuário"
+                placeholder="Digite o Nome de Usuário"
                 value={username}
                 onChangeText={setUsername}
                 autoCapitalize="none"
-                style={{ margin: 10, width: "80%" }}
+                style={globalStyles.input}
             />
+            <Text style={globalStyles.text}>Senha</Text>
             <TextInput
-                label="Digite sua senha"
+                placeholder="Digite sua senha"
                 value={confirmPassword}
                 onChangeText={setConfirmPassword}
                 autoCapitalize="none"
                 secureTextEntry={true}
-                style={[{ margin: 10, width: "80%" }]}
+                style={globalStyles.input}
             />
+            <Text style={globalStyles.text}>Repita a senha</Text>
             <TextInput
-                label="Digite novamente sua senha"
+                placeholder="Digite novamente sua senha"
                 value={password}
                 onChangeText={setPassword}
                 autoCapitalize="none"
                 secureTextEntry={true}
-                style={[{ margin: 10, width: "80%" }]}
+                style={globalStyles.input}
             />
-            <Pressable style={{ margin: 10 }}></Pressable>
-
-            <Pressable style={{margin: 10}} onPress={() => navigation.navigate('Login')}>
-                <Text style={globalStyles.text}>Já possui conta? Clique aqui e faça Login</Text>
-            </Pressable>
             
+            <Pressable
+                style={{ margin: 10 }}
+                onPress={() => navigation.navigate("Login")}
+            >
+                <Text style={globalStyles.text}>
+                    Já possui conta? Clique aqui e faça Login
+                </Text>
+            </Pressable>
 
             <View style={globalStyles.row}>
                 <Button
@@ -84,7 +93,7 @@ export const Register = ({ route, navigation }) => {
                 </Button>
             </View>
 
-            <Text style={[globalStyles.text, { margin: 50 }]}>
+            <Text style={[globalStyles.text, { margin: 30 }]}>
                 Este app é uma criação de MarkNaArea
             </Text>
         </View>

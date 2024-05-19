@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from "react-native";
-import { Button } from "react-native-paper";
+import { Button, Divider } from "react-native-paper";
 import { globalStyles } from "../../styles/global";
 import { StackActions, useNavigation } from "@react-navigation/native";
 import { storage } from "../../localStorage/asyncStorage";
@@ -27,13 +27,16 @@ export const Menu = () => {
                 colors={LinearBackgroundColors}
                 style={globalStyles.background}
             />
-            <Text style={globalStyles.text}>Hello World</Text>
+            <Text style={globalStyles.text}>Bem vindo!</Text>
+            <Text style={globalStyles.text}>Esse app encontra-se atualmente na versão Alpha, e portanto, ainda não conta com a maior parte das funcionalidades.</Text>
+            <Text style={globalStyles.text}>Em sua versão atual, apenas está funcionando corretamente o menu das Wikis.</Text>
+            <Divider style={{ marginVertical: 20 }} />
             <Button
                 mode="contained"
                 style={{ margin: 10 }}
                 onPress={loggoffUser}
             >
-                Login
+                Logoff
             </Button>
         </View>
     );
