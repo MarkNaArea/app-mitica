@@ -18,7 +18,7 @@ export const Login = () => {
             if (await loginUser(username, password)) {
                 navigation.dispatch(
                     StackActions.replace("MainRoute", {
-                        fromScreen: "MainMenu"
+                        fromScreen: "Menu Principal"
                     })
                 );
             }
@@ -46,7 +46,7 @@ export const Login = () => {
                 value={username}
                 onChangeText={setUsername}
                 autoCapitalize="none"
-                style={globalStyles.input}
+                style={style.input}
             />
             <Text style={globalStyles.text}>Senha</Text>    
             <TextInput
@@ -55,7 +55,7 @@ export const Login = () => {
                 onChangeText={setPassword}
                 autoCapitalize="none"
                 secureTextEntry={true}
-                style={globalStyles.input}
+                style={style.input}
             />
             <Pressable style={{ margin: 10 }}>
                 <Text style={globalStyles.text}>Esqueceu sua senha?</Text>

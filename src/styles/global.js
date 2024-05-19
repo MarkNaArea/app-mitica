@@ -3,12 +3,15 @@ import { StyleSheet } from "react-native";
 export const globalStyles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#11001c",
         padding: 10
     },
 
+    centeredContainer: {
+        flex: 1,
+        padding: 10,
+    },
+
     card: {
-        backgroundColor: "#9d80ae",
         alignItems: "start",
         justifyContent: "center",
         padding: 10,
@@ -32,6 +35,12 @@ export const globalStyles = StyleSheet.create({
 
     text : {
         color: '#FFFFFF',
+        fontFamily: 'Poppins-Regular'
+    },
+
+    centeredText : {
+        color: '#FFFFFF',
+        textAlign: 'center',
         fontFamily: 'Poppins-Regular'
     },
 
@@ -76,9 +85,8 @@ export const globalStyles = StyleSheet.create({
     },
 
     input: {
-        margin: 10,
         height: 42,
-        width: "80%",
+        marginBottom: 10,
         backgroundColor: 'white',
         borderRadius: 30,
         borderWidth: 1,

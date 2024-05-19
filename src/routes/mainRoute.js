@@ -21,6 +21,7 @@ import { WikiGeographyMenu } from "../views/Wiki/WikiGeography/WikiGeographyMenu
 import { WikiListCities } from "../views/Wiki/WikiGeography/WikiListCities";
 import { WikiCityDetails } from "../views/Wiki/WikiGeography/WikiCityDetails";
 import { WikiClassDetail } from "../views/Wiki/WikiClasses/WikiClassDetail";
+import { screenOptionsHeaderNavigation } from "../constants/styleConstants";
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -28,14 +29,20 @@ const Drawer = createDrawerNavigator();
 export const MainRoute = () => {
     return (
         <Drawer.Navigator>
-            <Drawer.Screen name="MainMenu">
+            <Drawer.Screen
+                name="Menu Principal"
+                options={screenOptionsHeaderNavigation}
+            >
                 {() => (
                     <Stack.Navigator screenOptions={{ headerShown: false }}>
                         <Stack.Screen name="Menu" component={Menu} />
                     </Stack.Navigator>
                 )}
             </Drawer.Screen>
-            <Drawer.Screen name="Campanhas">
+            <Drawer.Screen
+                name="Campanhas"
+                options={screenOptionsHeaderNavigation}
+            >
                 {() => (
                     <Stack.Navigator screenOptions={{ headerShown: false }}>
                         <Stack.Screen
@@ -50,7 +57,10 @@ export const MainRoute = () => {
                     </Stack.Navigator>
                 )}
             </Drawer.Screen>
-            <Drawer.Screen name="Personagens">
+            <Drawer.Screen
+                name="Personagens"
+                options={screenOptionsHeaderNavigation}
+            >
                 {() => (
                     <Stack.Navigator screenOptions={{ headerShown: false }}>
                         <Stack.Screen
@@ -68,24 +78,66 @@ export const MainRoute = () => {
                     </Stack.Navigator>
                 )}
             </Drawer.Screen>
-            <Drawer.Screen name="Wiki">
+            <Drawer.Screen
+                name="Wiki"
+                options={screenOptionsHeaderNavigation}
+            >
                 {() => (
                     <Stack.Navigator screenOptions={{ headerShown: false }}>
-                        <Stack.Screen name="Menu da Wiki" component={WikiMenu} />
-                        <Stack.Screen name="Wiki Regras" component={WikiRules} />
-                        <Stack.Screen name="Wiki Classes" component={WikiClasses} />
-                        <Stack.Screen name="Wiki Detalhes da Classe" component={WikiClassDetail} />
+                        <Stack.Screen
+                            name="Menu da Wiki"
+                            component={WikiMenu}
+                        />
+                        <Stack.Screen
+                            name="Wiki Regras"
+                            component={WikiRules}
+                        />
+                        <Stack.Screen
+                            name="Wiki Classes"
+                            component={WikiClasses}
+                        />
+                        <Stack.Screen
+                            name="Wiki Detalhes da Classe"
+                            component={WikiClassDetail}
+                        />
                         <Stack.Screen name="Wiki Raças" component={WikiRaces} />
-                        <Stack.Screen name="Detalhes da Raça" component={WikiRaceDetails} />
-                        <Stack.Screen name="Wiki Habilidades" component={WikiSkills} />
-                        <Stack.Screen name="Detalhes da Habilidade" component={WikiSkillDetails} />
+                        <Stack.Screen
+                            name="Detalhes da Raça"
+                            component={WikiRaceDetails}
+                        />
+                        <Stack.Screen
+                            name="Wiki Habilidades"
+                            component={WikiSkills}
+                        />
+                        <Stack.Screen
+                            name="Detalhes da Habilidade"
+                            component={WikiSkillDetails}
+                        />
                         <Stack.Screen name="Wiki Itens" component={WikiItems} />
-                        <Stack.Screen name="Wiki Geografia" component={WikiGeographyMenu} />
-                        <Stack.Screen name="Wiki Lista Cidades" component={WikiListCities} />
-                        <Stack.Screen name="Wiki Detalhes Cidade" component={WikiCityDetails} />
-                        <Stack.Screen name="Wiki Selecionar Grupo de Deuses" component={WikiSelectGodGroup} />
-                        <Stack.Screen name="Wiki Lista de Deuses" component={WikiListGods} />
-                        <Stack.Screen name="Wiki Detalhes do Deus" component={WikiGodDetails} />
+                        <Stack.Screen
+                            name="Wiki Geografia"
+                            component={WikiGeographyMenu}
+                        />
+                        <Stack.Screen
+                            name="Wiki Lista Cidades"
+                            component={WikiListCities}
+                        />
+                        <Stack.Screen
+                            name="Wiki Detalhes Cidade"
+                            component={WikiCityDetails}
+                        />
+                        <Stack.Screen
+                            name="Wiki Selecionar Grupo de Deuses"
+                            component={WikiSelectGodGroup}
+                        />
+                        <Stack.Screen
+                            name="Wiki Lista de Deuses"
+                            component={WikiListGods}
+                        />
+                        <Stack.Screen
+                            name="Wiki Detalhes do Deus"
+                            component={WikiGodDetails}
+                        />
                     </Stack.Navigator>
                 )}
             </Drawer.Screen>

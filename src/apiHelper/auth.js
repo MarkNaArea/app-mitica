@@ -1,4 +1,5 @@
 import { storage } from "../localStorage/asyncStorage";
+import { saveLoginToken, saveUserId, saveUserName } from "../utils/storageUtils";
 
 export const loginUser = async (username, password) => {
     const userData = { username: username, password: password };
@@ -18,13 +19,11 @@ export const loginUser = async (username, password) => {
                 throw new Error('Usuário e/ou senha incorretos');
             }
         })
-        .then((response) => {
-            storage.save({
-                key: "loginToken", // Note: Do not use underscore("_") in key!
-                data: {
-                    token: response.token
-                }
-            });
+        .then(async (response) => {
+            await saveLoginToken(response.token);
+            await saveUserName(response.username);
+            await saveUserId(response.userId);
+
             // Pra lembrar a forma de pegar a key
             // storage.load({key: "loginToken"}).then(response => console.log(response))
             console.log("Login bem sucedido");

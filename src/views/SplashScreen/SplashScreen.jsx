@@ -4,20 +4,24 @@ import { style } from "./style";
 import { useEffect, useState } from "react";
 import { StackActions, useNavigation } from "@react-navigation/native";
 import { storage } from "../../localStorage/asyncStorage";
+import { getLoginToken } from "../../utils/storageUtils";
 
 export const SplashScreen = () => {
     const [isLogged, setIsLogged] = useState(false)
     const navigation = useNavigation();   
     
-    useEffect(()=>{
-        storage.load({key: "loginToken"}).then(value => {
-            console.log("Token:", value.token)
-            if (value.token != undefined) {
+    const checkLogin = async () => {
+        await getLoginToken().then(value => {
+            if (value != undefined) {
                 setIsLogged(true)
             }
         }).catch(error => {
             setIsLogged(false)
         })
+    }
+
+    useEffect(()=>{
+        checkLogin()
     }, [])
 
     console.log(isLogged)

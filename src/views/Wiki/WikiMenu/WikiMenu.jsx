@@ -6,7 +6,7 @@ import { LinearBackgroundColors } from "../../../constants/styleConstants";
 
 export const WikiMenu = ({ route, navigation }) => {
     return (
-        <View style={[globalStyles.view]}>
+        <View style={[globalStyles.view, {alignItems: 'center'}]}>
             <LinearGradient
                 // Background Linear Gradient
                 colors={LinearBackgroundColors}

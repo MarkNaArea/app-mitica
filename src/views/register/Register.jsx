@@ -27,7 +27,7 @@ export const Register = ({ route, navigation }) => {
                         alert("Registro bem sucedido!")
                         navigation.dispatch(
                             StackActions.replace("MainRoute", {
-                                fromScreen: "MainMenu"
+                                fromScreen: "Menu Principal"
                             })
                         );
                     }
@@ -63,14 +63,14 @@ export const Register = ({ route, navigation }) => {
                 value={username}
                 onChangeText={setUsername}
                 autoCapitalize="none"
-                style={globalStyles.input}
+                style={style.input}
             />
             <TextInput
                 placeholder="Digite o Email"
                 value={email}
                 onChangeText={setEmail}
                 autoCapitalize="none"
-                style={globalStyles.input}
+                style={style.input}
             />
             <TextInput
                 placeholder="Digite sua senha"
@@ -78,7 +78,7 @@ export const Register = ({ route, navigation }) => {
                 onChangeText={setConfirmPassword}
                 autoCapitalize="none"
                 secureTextEntry={true}
-                style={globalStyles.input}
+                style={style.input}
             />
             <TextInput
                 placeholder="Digite novamente sua senha"
@@ -86,7 +86,7 @@ export const Register = ({ route, navigation }) => {
                 onChangeText={setPassword}
                 autoCapitalize="none"
                 secureTextEntry={true}
-                style={globalStyles.input}
+                style={style.input}
             />
             
             <Pressable

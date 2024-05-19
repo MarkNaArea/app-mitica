@@ -1,1 +1,11 @@
-export const LinearBackgroundColors = ["#4f0147", "#290025"]
+export const LinearBackgroundColors = ["#3a015c", "#11001c"]
+
+export const screenOptionsHeaderNavigation = {
+    headerStyle: {
+        backgroundColor: "#3a015c"
+    },
+    headerTintColor: "white",
+    headerTitleStyle: {
+        fontFamily: "Poppins-Regular"
+    }
+}

@@ -27,9 +27,9 @@ export const Menu = () => {
                 colors={LinearBackgroundColors}
                 style={globalStyles.background}
             />
-            <Text style={globalStyles.text}>Bem vindo!</Text>
-            <Text style={globalStyles.text}>Esse app encontra-se atualmente na versão Alpha, e portanto, ainda não conta com a maior parte das funcionalidades.</Text>
-            <Text style={globalStyles.text}>Em sua versão atual, apenas está funcionando corretamente o menu das Wikis.</Text>
+            <Text style={globalStyles.centeredText}>Bem vindo!</Text>
+            <Text style={globalStyles.centeredText}>Esse app encontra-se atualmente na versão Alpha, e portanto, ainda não conta com a maior parte das funcionalidades.</Text>
+            <Text style={globalStyles.centeredText}>Em sua versão atual, apenas está funcionando corretamente o menu das Wikis.</Text>
             <Divider style={{ marginVertical: 20 }} />
             <Button
                 mode="contained"
