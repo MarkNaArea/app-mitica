@@ -3,6 +3,8 @@ import { Text, View } from "react-native"
 import { Button } from "react-native-paper"
 import { globalStyles } from "../../../styles/global"
 import { postCharacter } from "../../../apiHelper/characterControllers"
+import { LinearGradient } from "expo-linear-gradient"
+import { LinearBackgroundColors } from "../../../constants/styleConstants"
 
 export const EditCharacter = ({route, navigation}) => {
     const [character, setCharacter] = useState([])
@@ -96,6 +98,11 @@ export const EditCharacter = ({route, navigation}) => {
 
     return (
         <View style={globalStyles.view}>
+                        <LinearGradient
+                // Background Linear Gradient
+                colors={LinearBackgroundColors}
+                style={globalStyles.background}
+            />
             <View style={globalStyles.card}>
                 <Text style={globalStyles.text}>Nome do Personagem: {character.name}</Text>
             </View>

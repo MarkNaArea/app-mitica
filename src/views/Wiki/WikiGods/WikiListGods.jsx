@@ -3,6 +3,8 @@ import { globalStyles } from "../../../styles/global";
 import { getGodsByGroupId } from "../../../apiHelper/godControllers";
 import { useCallback, useState } from "react";
 import { useFocusEffect } from "@react-navigation/native";
+import { LinearGradient } from "expo-linear-gradient";
+import { LinearBackgroundColors } from "../../../constants/styleConstants";
 
 export const WikiListGods = ({ route, navigation }) => {
     const [gods, setGods] = useState([]);
@@ -22,6 +24,11 @@ export const WikiListGods = ({ route, navigation }) => {
 
     return (
         <View style={[globalStyles.view]}>
+            <LinearGradient
+                // Background Linear Gradient
+                colors={LinearBackgroundColors}
+                style={globalStyles.background}
+            />
             <FlatList
                 data={gods}
                 keyExtractor={(item) => item.id}

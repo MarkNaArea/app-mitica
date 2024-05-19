@@ -4,6 +4,8 @@ import { style } from "./style";
 import { Button, TextInput } from "react-native-paper";
 import { useState } from "react";
 import { loginUser, registerUser } from "../../apiHelper/auth";
+import { LinearGradient } from "expo-linear-gradient";
+import { LinearBackgroundColors } from "../../constants/styleConstants";
 
 export const Register = ({ route, navigation }) => {
     const [username, setUsername] = useState("");
@@ -30,6 +32,11 @@ export const Register = ({ route, navigation }) => {
 
     return (
         <View style={globalStyles.container}>
+            <LinearGradient
+                // Background Linear Gradient
+                colors={LinearBackgroundColors}
+                style={globalStyles.background}
+            />
             <Text style={globalStyles.title}>Registro</Text>
             <Image
                 style={style.logo}

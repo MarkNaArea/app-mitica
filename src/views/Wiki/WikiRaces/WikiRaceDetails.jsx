@@ -2,6 +2,8 @@ import { ScrollView, Text, View } from "react-native";
 import { getRaces } from "../../../apiHelper/wikiRacesControllers";
 import { useEffect, useState } from "react";
 import { globalStyles } from "../../../styles/global";
+import { LinearGradient } from "expo-linear-gradient";
+import { LinearBackgroundColors } from "../../../constants/styleConstants";
 
 export const WikiRaceDetails = ({ route, navigation }) => {
     const [race, setRace] = useState({
@@ -30,7 +32,12 @@ export const WikiRaceDetails = ({ route, navigation }) => {
     }, []);
 
     return (
-        <ScrollView style={globalStyles.view}>
+        <ScrollView style={globalStyles.container}>
+            <LinearGradient
+                // Background Linear Gradient
+                colors={LinearBackgroundColors}
+                style={globalStyles.background}
+            />
             <View style={globalStyles.card}>
                 <Text style={globalStyles.subtitle}>Raça: {race.race}</Text>
                 <Text style={globalStyles.text}>
@@ -45,9 +52,7 @@ export const WikiRaceDetails = ({ route, navigation }) => {
                 <Text style={globalStyles.subtitle}>
                     Caracteristica Racial: {race.racialTrait}
                 </Text>
-                <Text style={globalStyles.text}>
-                    {race.racialTraitDetails}
-                </Text>
+                <Text style={globalStyles.text}>{race.racialTraitDetails}</Text>
             </View>
         </ScrollView>
     );

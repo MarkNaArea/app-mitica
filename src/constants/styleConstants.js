@@ -1,0 +1,1 @@
+export const LinearBackgroundColors = ["#4f0147", "#290025"]

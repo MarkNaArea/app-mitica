@@ -1,5 +1,7 @@
 import { ScrollView, Text, View } from "react-native";
 import { globalStyles } from "../../../styles/global";
+import { LinearBackgroundColors } from "../../../constants/styleConstants";
+import { LinearGradient } from "expo-linear-gradient";
 
 export const WikiSkillDetails = ({ route, navigation }) => {
     const skill = route.params.skill;
@@ -8,6 +10,11 @@ export const WikiSkillDetails = ({ route, navigation }) => {
 
     return (
         <ScrollView style={globalStyles.view}>
+            <LinearGradient
+                // Background Linear Gradient
+                colors={LinearBackgroundColors}
+                style={globalStyles.background}
+            />
             <View style={globalStyles.card}>
                 <Text style={globalStyles.text}>
                     Nome da Habilidade: {skill.name}

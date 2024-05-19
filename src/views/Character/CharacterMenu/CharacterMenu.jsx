@@ -1,6 +1,8 @@
 import { useState } from "react"
 import { ScrollView, Text, View } from "react-native"
 import { globalStyles } from "../../../styles/global"
+import { LinearGradient } from "expo-linear-gradient"
+import { LinearBackgroundColors } from "../../../constants/styleConstants"
 
 export const CharacterMenu = ({route, navigation}) => {
     console.log(route.params.character)
@@ -9,6 +11,11 @@ export const CharacterMenu = ({route, navigation}) => {
     
     return (
         <ScrollView style={globalStyles.view}>
+                        <LinearGradient
+                // Background Linear Gradient
+                colors={LinearBackgroundColors}
+                style={globalStyles.background}
+            />
             <View style={globalStyles.card}>
                 <Text style={globalStyles.subtitle}>Base</Text>
                 <Text style={globalStyles.text}>Personagem: {character.name}</Text>

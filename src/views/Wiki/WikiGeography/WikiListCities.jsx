@@ -3,6 +3,8 @@ import { useCallback, useState } from "react";
 import { FlatList, Pressable, Text, View } from "react-native";
 import { globalStyles } from "../../../styles/global";
 import { getWikiCities } from "../../../apiHelper/wikiCitiesControllers";
+import { LinearGradient } from "expo-linear-gradient";
+import { LinearBackgroundColors } from "../../../constants/styleConstants";
 
 export const WikiListCities = ({ route, navigation }) => {
     const [cities, setCities] = useState([]);
@@ -22,6 +24,11 @@ export const WikiListCities = ({ route, navigation }) => {
 
     return (
         <View style={globalStyles.view}>
+            <LinearGradient
+                // Background Linear Gradient
+                colors={LinearBackgroundColors}
+                style={globalStyles.background}
+            />
             <FlatList
                 data={cities}
                 keyExtractor={(item) => item._id}

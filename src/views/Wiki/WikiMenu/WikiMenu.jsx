@@ -1,11 +1,17 @@
 import { FlatList, View } from "react-native";
 import { SquareButton } from "../../../components/General/SquareButton";
 import { globalStyles } from "../../../styles/global";
+import { LinearGradient } from "expo-linear-gradient";
+import { LinearBackgroundColors } from "../../../constants/styleConstants";
 
 export const WikiMenu = ({ route, navigation }) => {
-
     return (
         <View style={[globalStyles.view]}>
+            <LinearGradient
+                // Background Linear Gradient
+                colors={LinearBackgroundColors}
+                style={globalStyles.background}
+            />
             <View style={globalStyles.column}>
                 <View style={globalStyles.row}>
                     <SquareButton
@@ -36,7 +42,11 @@ export const WikiMenu = ({ route, navigation }) => {
                         buttonIcon={require("../../../assets/icons/menu/backpack.png")}
                     />
                     <SquareButton
-                        onPress={() => navigation.navigate("Wiki Selecionar Grupo de Deuses")}
+                        onPress={() =>
+                            navigation.navigate(
+                                "Wiki Selecionar Grupo de Deuses"
+                            )
+                        }
                         buttonText="Deuses"
                         buttonIcon={require("../../../assets/icons/menu/yeti.png")}
                     />

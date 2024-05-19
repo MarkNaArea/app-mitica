@@ -5,9 +5,10 @@ import { Button, TextInput } from "react-native-paper";
 import { useState } from "react";
 import { loginUser } from "../../apiHelper/auth";
 import { StackActions, useNavigation } from "@react-navigation/native";
+import { LinearGradient } from "expo-linear-gradient";
+import { LinearBackgroundColors } from "../../constants/styleConstants";
 
 export const Login = () => {
-
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const navigation = useNavigation();
@@ -15,7 +16,11 @@ export const Login = () => {
     const handleLogin = async () => {
         if (username != "" || password != "") {
             if (await loginUser(username, password)) {
-                navigation.dispatch(StackActions.replace('MainRoute', {fromScreen: 'MainMenu'}));
+                navigation.dispatch(
+                    StackActions.replace("MainRoute", {
+                        fromScreen: "MainMenu"
+                    })
+                );
             }
         } else {
             alert("Insira usuário e senha");
@@ -24,10 +29,15 @@ export const Login = () => {
 
     return (
         <View style={globalStyles.container}>
+            <LinearGradient
+                // Background Linear Gradient
+                colors={LinearBackgroundColors}
+                style={globalStyles.background}
+            />
             <Text style={globalStyles.title}>Login</Text>
             <Image
                 style={style.logo}
-                source={require('../../assets/images/logo.png')}
+                source={require("../../assets/images/logo.png")}
             />
             <TextInput
                 label="Nome de Usuário"

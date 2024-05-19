@@ -14,6 +14,8 @@ import { SkillCard } from "../../../components/Wiki/Skills/SkillCard";
 import { Button, Chip, Icon, TextInput } from "react-native-paper";
 import { RefreshControl } from "react-native-gesture-handler";
 import BottomSheet from "react-native-gesture-bottom-sheet";
+import { LinearGradient } from "expo-linear-gradient";
+import { LinearBackgroundColors } from "../../../constants/styleConstants";
 
 export const WikiSkills = ({ route, navigation }) => {
     const [fullSkills, setFullSkills] = useState([]);
@@ -157,6 +159,11 @@ export const WikiSkills = ({ route, navigation }) => {
 
     return (
         <View style={globalStyles.view}>
+            <LinearGradient
+                // Background Linear Gradient
+                colors={LinearBackgroundColors}
+                style={globalStyles.background}
+            />
             <View style={globalStyles.row}>
                 <TextInput
                     style={{ margin: 10, width: "75%" }}
