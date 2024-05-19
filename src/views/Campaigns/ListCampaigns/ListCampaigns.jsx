@@ -47,16 +47,28 @@ export const ListCampaigns = ({ routes, navigation }) => {
     };
 
     const handleCreateCampaign = async () => {
+        if (!campaignName) {
+            alert("Digite um nome para a campanha");
+            return;
+        }
+
         const data = {
             name: campaignName,
             game_master_id: await getUserId(),
-            date: new Date().toLocaleDateString().replaceAll('/', '-')
-        }
+            date: new Date().toLocaleDateString().replaceAll("/", "-")
+        };
 
-        if (await postCampanha(data)) {
-            navigation.navigate('Menu da campanha', { campaignId: data._id })
-        }
-    }
+        await postCampanha(data).then((response) => {
+            if (response.status === 200) {
+                alert("Campanha criada com sucesso");
+                navigation.navigate("Menu da campanha", {
+                    campaignId: response._id
+                });
+            } else {
+                alert("Erro ao criar campanha");
+            }
+        });
+    };
 
     const onRefresh = async () => {
         setCampaigns([]);
@@ -196,10 +208,13 @@ export const ListCampaigns = ({ routes, navigation }) => {
                 height={200}
                 onRequestClose={() => bottomSheet.current.close()}
             >
-                <View style={[globalStyles.container, {justifyContent: 'center'}]}>
-                    <Text style={globalStyles.blacktext}>
-                        Nome da campanha
-                    </Text>
+                <View
+                    style={[
+                        globalStyles.container,
+                        { justifyContent: "center" }
+                    ]}
+                >
+                    <Text style={globalStyles.blacktext}>Nome da campanha</Text>
                     <TextInput
                         style={globalStyles.input}
                         placeholder="Digite o nome da campanha"
@@ -208,9 +223,15 @@ export const ListCampaigns = ({ routes, navigation }) => {
                     />
                     <Button
                         mode="contained"
-                        style={{ margin: 10, color: 'white', fontFamily: 'Poppins-Regular'}}
+                        style={{
+                            margin: 10,
+                            color: "white",
+                            fontFamily: "Poppins-Regular"
+                        }}
                         onPress={handleCreateCampaign}
-                    >Criar campanha</Button>
+                    >
+                        Criar campanha
+                    </Button>
                 </View>
             </BottomSheet>
         </View>
